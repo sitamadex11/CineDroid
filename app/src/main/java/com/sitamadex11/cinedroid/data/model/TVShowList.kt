@@ -1,5 +1,7 @@
-package com.sitamadex11.cinedroid.data
+package com.sitamadex11.cinedroid.data.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 data class TVShowList(
@@ -7,7 +9,12 @@ data class TVShowList(
 	val results: List<TVShow?>? = null
 )
 
+@Entity(tableName = "popular_show")
 data class TVShow(
+
+    @PrimaryKey
+	@field:SerializedName("id")
+	val id: Int? = null,
 
 	@field:SerializedName("first_air_date")
 	val firstAirDate: String? = null,
@@ -33,6 +40,4 @@ data class TVShow(
 	@field:SerializedName("name")
 	val name: String? = null,
 
-	@field:SerializedName("id")
-	val id: Int? = null,
 )

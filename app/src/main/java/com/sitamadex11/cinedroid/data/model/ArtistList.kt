@@ -1,13 +1,19 @@
-package com.sitamadex11.cinedroid.data
+package com.sitamadex11.cinedroid.data.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-data class PeopleList(
+data class ArtistList(
 	@field:SerializedName("results")
-	val results: List<People?>? = null
+	val results: List<Artist?>? = null
 )
 
-data class People(
+@Entity(tableName = "popular_artist")
+data class Artist(
+    @PrimaryKey
+	@field:SerializedName("id")
+	val id: Int? = null,
 
 	@field:SerializedName("gender")
 	val gender: Int? = null,
@@ -15,8 +21,8 @@ data class People(
 	@field:SerializedName("known_for_department")
 	val knownForDepartment: String? = null,
 
-	@field:SerializedName("known_for")
-	val knownFor: List<KnownForItem?>? = null,
+//	@field:SerializedName("known_for")
+//	val knownFor: List<KnownForItem?>? = null,
 
 	@field:SerializedName("popularity")
 	val popularity: Double? = null,
@@ -26,9 +32,6 @@ data class People(
 
 	@field:SerializedName("profile_path")
 	val profilePath: String? = null,
-
-	@field:SerializedName("id")
-	val id: Int? = null,
 
 	@field:SerializedName("adult")
 	val adult: Boolean? = null

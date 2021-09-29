@@ -1,5 +1,7 @@
-package com.sitamadex11.cinedroid.data
+package com.sitamadex11.cinedroid.data.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 data class MovieList(
@@ -7,7 +9,12 @@ data class MovieList(
 	val results: List<Movie?>? = null
 )
 
+@Entity(tableName = "popular_movie")
 data class Movie(
+
+	@PrimaryKey
+	@field:SerializedName("id")
+	val id: Int? = null,
 
 	@field:SerializedName("overview")
 	val overview: String? = null,
@@ -35,9 +42,6 @@ data class Movie(
 
 	@field:SerializedName("popularity")
 	val popularity: Double? = null,
-
-	@field:SerializedName("id")
-	val id: Int? = null,
 
 	@field:SerializedName("adult")
 	val adult: Boolean? = null,
